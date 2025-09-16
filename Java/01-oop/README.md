@@ -1,9 +1,10 @@
 # 🐣 Hướng Đối Tượng Trong Java (Object-Oriented Programming - OOP)
 
 ## 📌 Giới thiệu
-**Lập trình hướng đối tượng (OOP - Object-Oriented Programming)** là một phương pháp lập trình dựa trên **đối tượng** – nơi mà **dữ liệu (thuộc tính)** và **hành vi (phương thức)** được gói gọn trong cùng một thực thể.  
-
-Trong Java, OOP là **cốt lõi của ngôn ngữ**. Việc nắm vững OOP là nền tảng để bạn có thể phát triển các **ứng dụng thực tế**, từ những dự án nhỏ đến hệ thống phần mềm phức tạp.
+OOP (Object-Oriented Programming) hay Lập trình Hướng Đối Tượng là phương pháp lập trình xoay quanh đối tượng (object).
+Mỗi đối tượng sẽ gói gọn cả:
+- Thuộc tính (Attributes / Fields): mô tả đặc điểm, trạng thái.
+- Hành vi (Methods / Behaviors): mô tả những gì đối tượng có thể làm.
 
 ---
 
