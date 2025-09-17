@@ -69,6 +69,7 @@ public class Person {
 ### 2. Không kiểm tra dữ liệu đầu vào trong `Setter`
 Lỗi:
  `Setter` gán dữ liệu mà không kiểm tra giá trị, dẫn đến dữ liệu sai hoặc lỗi logic trong hệ thống.
+ 
 **Ví dụ sai**
 ```java
 public class Product {
