@@ -22,7 +22,7 @@
 
 ---
 ## 🔒 Cách thực hiện Encapsulation
-### 1. Khai báo các biến trong class là private
+### 1. Khai báo các biến trong class là `private`
 - Các biến chỉ có thể được truy cập trực tiếp từ **bên trong chính lớp đó**.
 - Bên ngoài **không thể thay đổi giá trị trực tiếp**.
 ### 2. Cung cấp Getter và Setter (phương thức công khai `public`)
