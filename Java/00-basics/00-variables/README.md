@@ -128,7 +128,10 @@ boolean isActive = true;
 ```
 ---
 ## 💡 Quy tắc đặt tên biến trong Java
-- Bắt đầu bằng chữ cái, $ hoặc _, không bắt đầu bằng số.
-- Dùng camelCase: studentName, totalScore.
-- Tên biến phải có ý nghĩa, dễ hiểu.
-- Tránh trùng với từ khóa của Java (class, int, public, …).
+- Bắt đầu bằng chữ cái, dấu gạch dưới _ hoặc dấu $.
+- Không bắt đầu bằng số.
+- Không chứa khoảng trắng hoặc ký tự đặc biệt.
+- Không trùng với từ khóa (keyword) của Java.
+- Sử dụng camelCase cho tên biến.
+- Tên biến phải có ý nghĩa, rõ ràng, dễ hiểu.
+- Phân biệt chữ hoa và chữ thường (case-sensitive).
