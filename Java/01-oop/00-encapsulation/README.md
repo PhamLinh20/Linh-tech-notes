@@ -63,13 +63,30 @@ public class Person {
     protected String name; // protected cho phép class con hoặc package khác truy cập
 }
 ```
--> Đặt biến là `private` để giới hạn quyền truy cập, chỉ public những gì thật sự cần thiết (Getter/Setter).
 
+**Giải pháp**
+
+Đặt biến là `private` để giới hạn quyền truy cập, chỉ public những gì thật sự cần thiết (Getter/Setter).
+```java
+public class Person {
+  private String name; 
+
+  // Getter
+  public String getName() {
+    return name;
+  }
+
+  // Setter
+  public void setName(String name) {
+    this.name = name;
+  }
+}
+```
 --- 
+
 ### 2. Không kiểm tra dữ liệu đầu vào trong `Setter`
 Lỗi:
  `Setter` gán dữ liệu mà không kiểm tra giá trị, dẫn đến dữ liệu sai hoặc lỗi logic trong hệ thống.
- 
 **Ví dụ sai**
 ```java
 public class Product {
@@ -94,4 +111,24 @@ public class Main {
 }
 ```
 - Dữ liệu sai (-100) làm hệ thống tính toán sai, gây ra lỗi nghiêm trọng.
+
+**Giải pháp**
+
+```java
+public class Product {
+    private double price;
+
+    public void setPrice(double price) {
+        if (price >= 0) { // kiểm tra giá trị
+            this.price = price;
+        } else {
+            System.out.println("Giá sản phẩm không hợp lệ!");
+        }
+    }
+
+    public double getPrice() {
+        return price;
+    }
+}
+```
 
