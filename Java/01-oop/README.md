@@ -6,6 +6,12 @@ Mỗi đối tượng sẽ gói gọn cả:
 - Thuộc tính (Attributes / Fields): mô tả đặc điểm, trạng thái.
 - Hành vi (Methods / Behaviors): mô tả những gì đối tượng có thể làm.
 
+**Ví dụ :** Trong ứng dụng nghe nhạc có thể có các đối tượng sau : 
+
+| Đối tượng | Thuộc tính | Hành vi |
+|-----------|------------|----------|
+| 🎵 **Bài hát** | • Tên bài hát <br> • Thời lượng <br> • Thể loại <br> • Ca sĩ <br> | • Phát nhạc <br> • Tạm dừng <br> • Dừng phát <br> • Tải về |
+| 🎤 **Ca sĩ** | • Tên ca sĩ/ban nhạc <br> • Quốc tịch <br> • Danh sách bài hát <br> • Danh sách album | • Phát hành bài hát <br> • Phát hành album <br> • Hiển thị thông tin <br>  |
 ---
 
 ## 🧩 4 tính chất cơ bản của OOP
