@@ -129,3 +129,4 @@ public class Main {
 
 - Khi ghi đè, bạn có thể sử dụng `super.methodName()` để gọi phương thức gốc của lớp cha bên trong phương thức mới.
 
+---
