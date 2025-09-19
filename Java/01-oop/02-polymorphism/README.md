@@ -92,3 +92,4 @@ Trong Java, **“chữ ký” của phương thức** gồm:
 👉 **Không bao gồm**:  
 - Kiểu trả về (*return type*)  
 - Phạm vi truy cập (*access modifier*: `public`, `private`, …)  
+---
