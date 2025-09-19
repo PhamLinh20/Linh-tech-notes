@@ -8,6 +8,11 @@
 - Quản lý và kiểm soát dữ liệu: Đảm bảo dữ liệu luôn hợp lệ, tránh lỗi.
 - Giảm sự phụ thuộc: Giúp hệ thống dễ bảo trì, nâng cấp, và mở rộng.
 - Che giấu sự phức tạp: Người dùng chỉ cần biết phương thức `public`, không quan tâm đến chi tiết bên trong.
+
+**Ví dụ:**  Khi rút tiền tại máy ATM chỉ tương tác được qua giao diện bên ngoài như nhập mã PIN, số tiền rút mà không thể thấy cách ngân hàng xử lý giao dịch nội bộ.
+
+→ Dữ liệu tài khoản được **đóng gói và bảo vệ**, chỉ được truy cập thông qua các phương thức an toàn.
+
 ---
 ## 🔑 Các phạm vi truy cập (Access Modifiers)
 
