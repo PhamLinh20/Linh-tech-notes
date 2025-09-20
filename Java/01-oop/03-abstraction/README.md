@@ -237,18 +237,18 @@ public class Main {
 ```
 ---
 #### 2.5 Khi nào nên dùng Interface ?
-##### a) **Định nghĩa giao diện chung cho nhiều lớp không liên quan trực tiếp**  
+#### a) **Định nghĩa giao diện chung cho nhiều lớp không liên quan trực tiếp**  
    - Khi có nhiều lớp **không cùng quan hệ kế thừa**, nhưng cần **chung một hành vi**.  
    - **Ví dụ:**  `Bird` và `Airplane` đều có khả năng `fly()`,  nhưng rõ ràng chúng **không nên cùng kế thừa từ một lớp cha** → dùng `interface Flyable`.
 
-##### b) **Cần đa kế thừa hành vi**  
+#### b) **Cần đa kế thừa hành vi**  
    - Trong Java, một class **chỉ extends được 1 class**,  nhưng **có thể implements nhiều interface**.  
    - Điều này rất hữu ích khi một đối tượng cần **nhiều vai trò khác nhau**.  
    - **Ví dụ:**  
      - `Duck` vừa là `Flyable` (có thể bay)  vừa là `Swimmable` (có thể bơi).  
      - `class Duck implements Flyable, Swimmable`.
 
-##### c) **Tách biệt API và Implementation**  
+#### c) **Tách biệt API và Implementation**  
    - Interface đóng vai trò như **API** (bản thiết kế công khai).  
    - Lớp cụ thể sẽ đóng vai trò **Implementation** (chi tiết triển khai).  
    - Giúp **dễ dàng bảo trì và mở rộng**:  Thay đổi bên trong lớp **không ảnh hưởng** đến phần code bên ngoài đang sử dụng interface.  
