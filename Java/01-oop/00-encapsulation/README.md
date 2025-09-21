@@ -31,8 +31,8 @@
 - Các biến chỉ có thể được truy cập trực tiếp từ **bên trong chính lớp đó**.
 - Bên ngoài **không thể thay đổi giá trị trực tiếp**.
 ### 2. Cung cấp Getter và Setter (phương thức công khai `public`)
-- **Getter** → Dùng để **lấy dữ liệu** từ biến `private`.
-- **Setter** → Dùng để **cập nhật dữ liệu**.
+- **Getter** → Dùng để **lấy dữ liệu** từ biến `private`, Kiểm soát dữ liệu khi trả về(Thêm logic trước khi trả về dữ liệu, ví dụ như định dạng, mã hóa, hoặc kiểm tra quyền truy cập).
+- **Setter** → Dùng để **cập nhật dữ liệu**, kiểm soát logic khi gán giá trị(thêm điều kiện hoặc xử lý đặc biệt trước khi thay đổi giá trị).
 
 **Ví dụ** 
 ```java
