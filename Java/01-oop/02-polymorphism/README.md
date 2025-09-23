@@ -1,5 +1,5 @@
 # 🎭 Tính đa hình (Polymorphism)
-Polymorphism (đa hình) cho phép cùng một phương thức(method) hoặc đối tượng(object) có thể thực hiện các hành vi khác nhau tùy thuộc vào lớp thực tế mà nó thuộc về khi chương trình chạy (runtime).”
+**Polymorphism (đa hình)** cho phép cùng một phương thức(method) hoặc đối tượng(object) có thể thực hiện các hành vi khác nhau tùy thuộc vào lớp thực tế mà nó thuộc về khi chương trình chạy (runtime).”
 
 **Ví dụ:** 
 Một sàn thương mại điện tử có nhiều loại dịch vụ giao hàng: Giao hàng thường, Giao hàng nhanh, Giao hàng quốc tế.
