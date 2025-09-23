@@ -1,5 +1,5 @@
 # 🧬 Tính kế thừa (Inheritance)
-Inheritance(kế thừa) cho phép một lớp (class) kế thừa (tức sử dụng lại) các thuộc tính (fields/biến) và phương thức (methods) từ một lớp(class) khác.
+**Inheritance(kế thừa)** cho phép một lớp (class) kế thừa (tức sử dụng lại) các thuộc tính (fields/biến) và phương thức (methods) từ một lớp(class) khác.
 
 Trong Java, kế thừa là tạo ra 1 lớp(class) mới dựa trên lớp(class) đã có, lớp mới có thể sử dụng lại các thuộc tính và phương thức của lớp đó.
 
