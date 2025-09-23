@@ -1,7 +1,7 @@
 # 🛡️ Tính đóng gói (Encapsulation)
 
 ## 📖 Khái niệm
-**Encapsulation (Tính đóng gói)** là một trong **4 tính chất cơ bản** của lập trình hướng đối tượng (OOP). Dùng để gói gọn dữ liệu(biến) và hành vi(phương thức) vào trong một class, chỉ cho phép bên ngoài truy cập thông qua các **phương thức được cung cấp** (public methods). 
+**Encapsulation (Tính đóng gói)** dùng để gói gọn dữ liệu(biến) và hành vi(phương thức) vào trong một class, chỉ cho phép bên ngoài truy cập thông qua các **phương thức được cung cấp** (public methods). 
 
 **Mục đích:**
 - Bảo vệ dữ liệu: Không cho phép truy cập và thay đổi trực tiếp từ bên ngoài.
