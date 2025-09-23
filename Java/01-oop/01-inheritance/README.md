@@ -4,7 +4,7 @@ Inheritance(kế thừa) cho phép một lớp (class) kế thừa (tức sử d
 Trong Java, kế thừa là tạo ra 1 lớp(class) mới dựa trên lớp(class) đã có, lớp mới có thể sử dụng lại các thuộc tính và phương thức của lớp đó.
 
 **Ví dụ:**
-Một ngân hàng có nhiều loại tài khoản : tài khoản tiết kiệm, tài khoản tín dụng, tài khoản tiết kiệm,...
+Một ngân hàng có nhiều loại tài khoản : tài khoản tiết kiệm, tài khoản tín dụng,...
 Tất cả các loại tài khoản này chia sẻ chung các thuộc tính (số tài khoản, tên chủ tài khoản, số dư hiện tại,...) và hành vi cơ bản(nạp tiền, rút tiền, kiểm tra số dư,...).
 
 ---
