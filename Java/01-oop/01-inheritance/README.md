@@ -1,10 +1,11 @@
 # 🧬 Tính kế thừa (Inheritance)
-Kế thừa là một tính năng cốt lõi của lập trình hướng đối tượng (OOP). Nó cho phép một lớp (class) kế thừa (tức sử dụng lại) các thuộc tính (fields/biến) và phương thức (methods) từ một lớp(class) khác.
+Inheritance(kế thừa) cho phép một lớp (class) kế thừa (tức sử dụng lại) các thuộc tính (fields/biến) và phương thức (methods) từ một lớp(class) khác.
 
 Trong Java, kế thừa là tạo ra 1 lớp(class) mới dựa trên lớp(class) đã có, lớp mới có thể sử dụng lại các thuộc tính và phương thức của lớp đó.
 
 **Ví dụ:**
-Các lớp `car` , `truck` có thể tạo ra dựa trên lớp `vehicle` và kế thừa các thuộc tính(tốc độ,bánh xe) hay các phương thức(tăng tốc, giảm tốc) của lớp `vehicle` .
+Một ngân hàng có nhiều loại tài khoản : tài khoản tiết kiệm, tài khoản tín dụng, tài khoản tiết kiệm,...
+Tất cả các loại tài khoản này chia sẻ chung các thuộc tính (số tài khoản, tên chủ tài khoản, số dư hiện tại,...) và hành vi cơ bản(nạp tiền, rút tiền, kiểm tra số dư,...).
 
 ---
 ## 📝 Cú pháp (Syntax)
