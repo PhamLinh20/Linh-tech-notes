@@ -1,14 +1,9 @@
 # 🎭 Tính đa hình (Polymorphism)
-Đa hình (Polymorphism) là một trong những khái niệm cốt lõi của lập trình hướng đối tượng (OOP). Nó cho phép cùng một phương thức(mehod) hoặc đối tượng(object) có thể thực hiện các hành vi khác nhau tùy thuộc vào lớp thực tế mà nó thuộc về khi chương trình chạy (runtime).”
+Polymorphism (đa hình) cho phép cùng một phương thức(method) hoặc đối tượng(object) có thể thực hiện các hành vi khác nhau tùy thuộc vào lớp thực tế mà nó thuộc về khi chương trình chạy (runtime).”
 
-**Ví dụ:** Động vật kêu
-
-- Hành động chung: **makeSound()**
-- Nhưng mỗi loài lại có cách kêu khác nhau:
-  - **Chó** → "Woof woof"
-  - **Mèo** → "Meow meow"
-
-Cùng là hành động **makeSound()** , nhưng kết quả khác nhau tùy vào con vật (đối tượng).
+**Ví dụ:** 
+Một sàn thương mại điện tử có nhiều loại dịch vụ giao hàng: Giao hàng thường, Giao hàng nhanh, Giao hàng quốc tế.
+Tất cả các dịch vụ đều có hành vi chung là “tính phí giao hàng”, nhưng mỗi loại có cách tính khác nhau.
 
 ---
 ## ⚙️ Hoạt động của Polymorphism
