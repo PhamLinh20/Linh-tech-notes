@@ -32,7 +32,7 @@ Câu lệnh `if` được sử dụng để thực thi một khối lệnh khi �
 
 **Cú pháp:**
 ```java
-if (điều_kiện) {
+if (condition) {
     // code thực thi khi điều kiện đúng
 } 
 ```
@@ -48,7 +48,7 @@ Câu lệnh `if-else` được sử dụng để thực thi một khối lệnh 
 
 **Cú pháp:**
 ```java
-if (điều_kiện) {
+if (condition) {
     // code khi điều kiện đúng
 } else {
     // code khi điều kiện sai
@@ -68,9 +68,9 @@ Câu lệnh `if-else-if` được sử dụng để thực thi một khối lệ
 
 **Cú pháp:**
 ```java
-if (điều_kiện_1) {
+if (condition_1) {
     // code khi điều kiện 1 đúng
-} else if (điều_kiện_2) {
+} else if (condition_2) {
     // code khi điều kiện 2 đúng
 } else {
     // code khi tất cả điều kiện đều sai
@@ -93,11 +93,11 @@ if (age>=80) {
 
 **Cú pháp:**
 ```java
-switch (biểu thức) {
-    case giá trị 1:
+switch (expression) {
+    case value1:
         // code khi biểu thức == giá trị 1
         break;
-    case giá trị 2:
+    case value2:
         // code khi biểu thức == giá trị 2
         break;
     ...
@@ -132,7 +132,7 @@ Vòng lặp `for` giúp lặp đi lặp lại một khối lệnh với mỗi ph
 
 **Cú pháp:**
 ```java
-for (khởi tạo; điều kiện; cập nhật) {
+for (initialization; condition; update) {
     // code được lặp lại 
 }
 ```
@@ -147,7 +147,7 @@ for (int i = 0; i < 5; i++) {
 Dùng để lặp đi lặp lại một khối lệnh miễn điều kiện đúng. Khác với `for`, `while` không biết trước số lần lặp nên sẽ chỉ dừng lại khi điều kiện sai.
 **Cú pháp:**
 ```java
-while (điều kiện) {
+while (condition) {
     // code lặp lại khi điều kiện đúng
 }
 ``` 
@@ -166,7 +166,7 @@ Dùng để thực thi khối lệnh ít nhất một lần, sau đó lặp lạ
 ```java
 do {
     // code thực thi ít nhất 1 lần
-} while (điều_kiện);
+} while (condition);
 ```
 **Ví dụ:**
 ```java
@@ -220,12 +220,3 @@ while (i < 5) {
 }
 ```
 💥 **Kết quả**: Chương trình bị treo, không thể thoát.
-
-
-
-
-
-
-
-
-
