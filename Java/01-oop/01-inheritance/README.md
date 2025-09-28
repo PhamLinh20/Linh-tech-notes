@@ -130,4 +130,37 @@ public class Main {
 
 - Khi ghi đè, bạn có thể sử dụng `super.methodName()` để gọi phương thức gốc của lớp cha bên trong phương thức mới.
 
+**Ví dụ:**
+```java
+// Lớp cha: Vehicle
+class Vehicle {
+    public void move() {
+        System.out.println("Phương tiện đang di chuyển...");
+    }
+}
+
+// Lớp con: Car kế thừa từ Vehicle
+class Car extends Vehicle {
+    @Override
+    public void move() {
+        System.out.println("Xe hơi đang chạy trên đường...");
+    }
+}
+
+// Chương trình chính
+public class Main {
+    public static void main(String[] args) {
+        Vehicle v1 = new Vehicle();
+        Vehicle v2 = new Car(); // Kiểu khai báo là Vehicle nhưng object là Car(đa hình)
+
+        v1.move(); // Gọi phương thức từ Vehicle
+        v2.move(); // Gọi phương thức bị override từ Car
+    }
+}
+```
+- `Vehicle` có thể có nhiều lớp con như `Car`, `Bike`, `Truck`...
+- Mỗi phương tiện có cách di chuyển khác nhau, nên ta dùng `method overriding` để định nghĩa hành vi riêng.
+- Giúp code linh hoạt, dễ mở rộng khi thêm loại phương tiện mới.
+
+
 ---
