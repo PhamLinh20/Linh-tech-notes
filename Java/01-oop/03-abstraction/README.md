@@ -29,79 +29,108 @@ Người dùng chỉ cần **thanh toán** mà không cần biết chi tiết c�
 - Thích hợp khi các lớp có **mối quan hệ gần gũi**, chia sẻ một số logic chung, nhưng vẫn **khác nhau ở một vài hành vi**.  
 - Hỗ trợ **tái sử dụng code** thông qua việc chia sẻ phương thức/thuộc tính chung cho nhiều lớp con.  
 
-**Ví dụ:** Shape (Hình học)
-- **Lớp cha `Shape`:**  
-  - Có các **thuộc tính chung** như `color`, `size`.  
-  - Có các **hành vi chung**:  
-    - `draw()` (có thể có sẵn code).  
-    - `calculateArea()` (chưa có code, để lớp con tự triển khai).  
-
-- **Các lớp con (`Circle`, `Square`, `Triangle`) kế thừa từ `Shape`:**  
-  - Mỗi hình có thể thêm **đặc điểm riêng**(`radius` của `Circle`, `sideLength` của `Square` )
-  - Có **hành vi khác nhau** (cách tính diện tích khác nhau cho từng hình)
+**Ví dụ:** Thanh toán trong ứng dụng bán hàng
+- Lớp cha `Payment`:
+  - Đại diện cho khái niệm thanh toán chung, chứa thông tin như số tiền, loại tiền tệ.
+  - Xác định hành vi chung là thanh toán, nhưng chưa mô tả chi tiết cách thực hiện.
+- Các lớp con:
+  - Chuyển khoản ngân hàng, Thẻ tín dụng, Ví điện tử.
+  - Mỗi loại có đặc điểm riêng như: thông tin ngân hàng, số thẻ, nhà cung cấp ví.
+  - Cách thực hiện thanh toán khác nhau tùy từng phương thức.
 
 ```java
-// Abstract class Shape
-abstract class Shape {
-    String color;
+// Abstract class: Payment
+abstract class Payment {
+    double amount;
 
-    // Constructor
-    Shape(String color) {
-        this.color = color;
+    Payment(double amount) {
+        this.amount = amount;
     }
 
-    // Phương thức trừu tượng (không có body)
-    abstract double calculateArea();
+    // Phương thức trừu tượng: lớp con bắt buộc phải triển khai
+    abstract void processPayment();
 
-    // Phương thức bình thường (có body)
-    void displayColor() {
-        System.out.println("Color: " + color);
+    // Phương thức bình thường: dùng chung cho tất cả các phương thức thanh toán
+    void showAmount() {
+        System.out.println("Số tiền thanh toán: " + amount + " VND");
     }
 }
 
-// Lớp con Circle
-class Circle extends Shape {
-    double radius;
-
-    Circle(String color, double radius) {
-        super(color);
-        this.radius = radius;
+// Lớp con: Chuyển khoản ngân hàng
+class BankTransfer extends Payment {
+    BankTransfer(double amount) {
+        super(amount);
     }
 
     @Override
-    double calculateArea() {
-        return Math.PI * radius * radius;
+    void processPayment() {
+        System.out.println("Đang xử lý thanh toán qua **chuyển khoản ngân hàng**...");
+        System.out.println("Thanh toán thành công qua ngân hàng!");
     }
 }
 
-// Lớp con Square
-class Square extends Shape {
-    double side;
-
-    Square(String color, double side) {
-        super(color);
-        this.side = side;
+// Lớp con: Thanh toán qua thẻ tín dụng
+class CreditCardPayment extends Payment {
+    CreditCardPayment(double amount) {
+        super(amount);
     }
 
     @Override
-    double calculateArea() {
-        return side * side;
+    void processPayment() {
+        System.out.println("Đang xử lý thanh toán qua **thẻ tín dụng**...");
+        System.out.println("Thanh toán thành công qua thẻ tín dụng!");
     }
 }
 
-// Main
+// Lớp con: Thanh toán qua ví điện tử
+class EWalletPayment extends Payment {
+    EWalletPayment(double amount) {
+        super(amount);
+    }
+
+    @Override
+    void processPayment() {
+        System.out.println("Đang xử lý thanh toán qua **ví điện tử**...");
+        System.out.println("Thanh toán thành công qua ví điện tử!");
+    }
+}
+
+// Main: Người dùng chỉ cần thanh toán, không cần quan tâm phương thức nào
 public class Main {
     public static void main(String[] args) {
-        Shape s1 = new Circle("Red", 5);
-        Shape s2 = new Square("Blue", 4);
+        Payment payment1 = new BankTransfer(500000);
+        Payment payment2 = new CreditCardPayment(1200000);
+        Payment payment3 = new EWalletPayment(800000);
 
-        s1.displayColor(); // Color: Red
-        System.out.println("Area: " + s1.calculateArea());
+        payment1.showAmount();
+        payment1.processPayment();
 
-        s2.displayColor(); // Color: Blue
-        System.out.println("Area: " + s2.calculateArea());
+        System.out.println("---------------------");
+
+        payment2.showAmount();
+        payment2.processPayment();
+
+        System.out.println("---------------------");
+
+        payment3.showAmount();
+        payment3.processPayment();
     }
 }
+
+```
+**Kết quả:**
+```java
+Số tiền thanh toán: 500000.0 VND
+Đang xử lý thanh toán qua **chuyển khoản ngân hàng**...
+Thanh toán thành công qua ngân hàng!
+---------------------
+Số tiền thanh toán: 1200000.0 VND
+Đang xử lý thanh toán qua **thẻ tín dụng**...
+Thanh toán thành công qua thẻ tín dụng!
+---------------------
+Số tiền thanh toán: 800000.0 VND
+Đang xử lý thanh toán qua **ví điện tử**...
+Thanh toán thành công qua ví điện tử!
 ```
 
 ---
@@ -167,34 +196,50 @@ interface InterfaceName {
 
 **Ví dụ:**
 ```java
-class Car implements InterfaceName {
-    @Override
-    public void start() {
-        System.out.println("Car started ");
+// Interface định nghĩa hành vi thanh toán
+interface PaymentMethod {
+    void pay();  // Phương thức abstract
+
+    // Default method
+    default void info() {
+        System.out.println("This is a default method inside an interface");
     }
 
-    @Override
-    public void stop() {
-        System.out.println("Car stopped ");
+    // Static method
+    static void displayRules() {
+        System.out.println("Interface rules are being displayed");
     }
 }
+
+// Class triển khai (implements) Interface
+class BankTransfer implements PaymentMethod {
+    @Override
+    public void pay() {
+        System.out.println("Thanh toán qua chuyển khoản ngân hàng");
+    }
+}
+
 ``` 
 
 ```java
-// Main
 public class Main {
     public static void main(String[] args) {
-        Car car = new Car();
-        car.start();  // Output: Car started 
-        car.stop();   // Output: Car stopped 
-        
-        // Gọi default method
-        car.info();   // Output: This is a default method inside an interface
-        
+        BankTransfer bankPayment = new BankTransfer();
+
+        // Gọi phương thức abstract đã được triển khai
+        bankPayment.pay();   
+        // Output: Thanh toán qua chuyển khoản ngân hàng
+
+        // Gọi default method từ Interface
+        bankPayment.info();  
+        // Output: This is a default method inside an interface
+
         // Gọi static method từ Interface
-        InterfaceName.displayRules(); // Output: Interface rules are being displayed
+        PaymentMethod.displayRules();  
+        // Output: Interface rules are being displayed
     }
 }
+
 ```
 ---
 #### 2.4 Đa kế thừa hành vi với Interface
@@ -202,55 +247,60 @@ Java không hỗ trợ đa kế thừa class, nhưng cho phép một class imple
 
 **Ví dụ:**
 ```java
-interface Flyable {
-    void fly();
+// Interface định nghĩa hành vi thanh toán
+interface Payable {
+    void pay();
 }
 
-interface Swimmable {
-    void swim();
+// Interface định nghĩa hành vi hoàn tiền
+interface Refundable {
+    void refund();
 }
 
-// Lớp Duck kế thừa cả 2 hành vi: bay và bơi
-class Duck implements Flyable, Swimmable {
+// Lớp EWallet vừa có thể thanh toán vừa có thể hoàn tiền
+class EWallet implements Payable, Refundable {
     @Override
-    public void fly() {
-        System.out.println("Duck is flying");
+    public void pay() {
+        System.out.println("Thanh toán qua ví điện tử");
     }
 
     @Override
-    public void swim() {
-        System.out.println("Duck is swimming");
+    public void refund() {
+        System.out.println("Hoàn tiền về ví điện tử");
     }
 }
 
 public class Main {
     public static void main(String[] args) {
-        Duck duck = new Duck();
-        duck.fly();   // Output: Duck is flying 
-        duck.swim();  // Output: Duck is swimming 
+        EWallet wallet = new EWallet();
+        wallet.pay();     // Output: Thanh toán qua ví điện tử
+        wallet.refund();  // Output: Hoàn tiền về ví điện tử
     }
 }
+
 ```
+-> `EWallet` vừa có thể thanh toán, vừa hoàn tiền mà không bị ràng buộc bởi giới hạn một class cha.
+
 ---
 #### 2.5 Khi nào nên dùng Interface ?
 #### a) **Định nghĩa giao diện chung cho nhiều lớp không liên quan trực tiếp**  
    - Khi có nhiều lớp **không cùng quan hệ kế thừa**, nhưng cần **chung một hành vi**.  
-   - **Ví dụ:**  `Bird` và `Airplane` đều có khả năng `fly()`,  nhưng rõ ràng chúng **không nên cùng kế thừa từ một lớp cha** → dùng `interface Flyable`.
+   - **Ví dụ:**  `BankTransfer` và `EWalletPayment` đều có khả năng thanh toán `(pay())`, nhưng rõ ràng chúng không nên cùng kế thừa từ một class cha
+→ dùng interface Payable để gom hành vi thanh toán chung.
 
 #### b) **Cần đa kế thừa hành vi**  
    - Trong Java, một class **chỉ extends được 1 class**,  nhưng **có thể implements nhiều interface**.  
    - Điều này rất hữu ích khi một đối tượng cần **nhiều vai trò khác nhau**.  
    - **Ví dụ:**  
-     - `Duck` vừa là `Flyable` (có thể bay)  vừa là `Swimmable` (có thể bơi).  
-     - `class Duck implements Flyable, Swimmable`.
+     - `EWallet` vừa có thể thanh toán `(pay())` → implements `Payable`.
+     - Vừa có thể hoàn tiền `(refund())` → implements `Refundable`.
 
 #### c) **Tách biệt API và Implementation**  
    - Interface đóng vai trò như **API** (bản thiết kế công khai).  
    - Lớp cụ thể sẽ đóng vai trò **Implementation** (chi tiết triển khai).  
    - Giúp **dễ dàng bảo trì và mở rộng**:  Thay đổi bên trong lớp **không ảnh hưởng** đến phần code bên ngoài đang sử dụng interface.  
    - **Ví dụ:**  
-     - `NotificationService` là interface định nghĩa phương thức `sendNotification()`.  
-     - Các lớp triển khai như `EmailNotification`, `SMSNotification`, `PushNotification`  
-       cài đặt chi tiết gửi thông báo qua từng kênh.  
-     - Khi muốn thêm kênh mới (ví dụ `SlackNotification`),  chỉ cần **tạo class mới implement interface**, không cần thay đổi logic cũ.
+     - `PaymentMethod` là interface định nghĩa phương thức `pay()`.
+     - Các lớp như `BankTransfer`, `CreditCardPayment`, `EWalletPayment` sẽ cài đặt chi tiết cho từng hình thức thanh toán.
+     - Khi muốn thêm phương thức thanh toán mới (ví dụ `QRPayment`), chỉ cần tạo class mới implements interface, không cần chỉnh sửa code cũ.
 
