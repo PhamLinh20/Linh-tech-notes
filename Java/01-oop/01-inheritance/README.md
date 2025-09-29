@@ -37,43 +37,70 @@ Trong Java, kế thừa được triển khai bằng cách sử dụng từ khó
 
 **Ví dụ:**
 ```java
-// Lớp cha
-class Vehicle {
-    int wheels;  // Số bánh xe
-    int speed;   // tốc độ hiện tại
+// Lớp cha: Tài khoản ngân hàng chung
+class BankAccount {
+    String ownerName;  // Tên chủ tài khoản
+    double balance;    // Số dư
 
-    // Phương thức để tăng tốc
-    void accelerate() {
-        speed += 10;
-        System.out.println("Accelerating! New speed: " + speed + " km/h");
+    // Phương thức gửi tiền
+    void deposit(double amount) {
+        balance += amount;
+        System.out.println("Đã nạp " + amount + " VND. Số dư mới: " + balance + " VND");
+    }
+
+    // Phương thức rút tiền
+    void withdraw(double amount) {
+        if (balance >= amount) {
+            balance -= amount;
+            System.out.println("Đã rút " + amount + " VND. Số dư còn lại: " + balance + " VND");
+        } else {
+            System.out.println("Số dư không đủ để rút!");
+        }
     }
 }
 
-// lớp con Car kế thừa từ lớp cha Vehicle
-class Car extends Vehicle {
-    // có thể thêm thuộc tính 
+// Lớp con: Tài khoản tiết kiệm
+class SavingsAccount extends BankAccount {
+    double interestRate = 0.05; // 5% lãi suất
+
+    // Phương thức tính lãi (riêng cho tài khoản tiết kiệm)
+    void addInterest() {
+        double interest = balance * interestRate;
+        balance += interest;
+        System.out.println(" Tiền lãi cộng thêm: " + interest + " VND. Số dư hiện tại: " + balance + " VND");
+    }
 }
 
+// Chương trình chính
 public class Main {
     public static void main(String[] args) {
-        Car myCar = new Car();
-        myCar.wheels = 4;
-        myCar.speed = 50;
+        // Tạo tài khoản tiết kiệm
+        SavingsAccount account = new SavingsAccount();
+        account.ownerName = "Nguyễn Văn A";
+        account.balance = 5_000_000;
 
-        System.out.println("Number of wheels: " + myCar.wheels);
-        System.out.println("Initial speed: " + myCar.speed + " km/h");
+        System.out.println("Chủ tài khoản: " + account.ownerName);
+        System.out.println("Số dư ban đầu: " + account.balance + " VND");
 
-        // Gọi phương thức tăng tốc được kế thừa từ Vehicle
-        myCar.accelerate();  // Tăng tốc độ thêm 10
+        // Gọi phương thức kế thừa từ BankAccount
+        account.deposit(2_000_000);     // Gửi thêm tiền
+        account.withdraw(1_000_000);    // Rút tiền
+
+        // Gọi phương thức riêng của SavingsAccount
+        account.addInterest();          // Tính lãi suất
     }
 }
+
 ```
 
 **Kết quả:**
 ```java
-Number of wheels: 4
-Initial speed: 50 km/h
-Accelerating! New speed: 60 km/h
+Chủ tài khoản: Nguyễn Văn A
+Số dư ban đầu: 5000000.0 VND
+Đã nạp 2000000.0 VND. Số dư mới: 7000000.0 VND
+Đã rút 1000000.0 VND. Số dư còn lại: 6000000.0 VND
+Tiền lãi cộng thêm: 300000.0 VND. Số dư hiện tại: 6300000.0 VND
+
 ``` 
 ---
 ### 2. Sử dụng từ khóa `super`
@@ -82,42 +109,48 @@ Accelerating! New speed: 60 km/h
 
 **Ví dụ:**
 ```java
-// Lớp cha: Vehicle
-class Vehicle {
-    int wheels;
+// Lớp cha: Tài khoản ngân hàng chung
+class BankAccount {
+    String ownerName;
+    double balance;
 
-    // Constructor của Vehicle
-    Vehicle(int wheels) {
-        this.wheels = wheels;
+    // Constructor của BankAccount
+    BankAccount(String ownerName, double balance) {
+        this.ownerName = ownerName;
+        this.balance = balance;
     }
 
-    void showWheels() {
-        System.out.println("Number of wheels: " + wheels);
+    void displayInfo() {
+        System.out.println("Chủ tài khoản: " + ownerName);
+        System.out.println("Số dư: " + balance + " VND");
     }
 }
 
-// Lớp con: Car kế thừa từ Vehicle
-class Car extends Vehicle {
-    String brand;
+// Lớp con: Tài khoản tiết kiệm kế thừa từ BankAccount
+class SavingsAccount extends BankAccount {
+    double interestRate;
 
-    // Constructor của Car gọi constructor của Vehicle bằng super
-    Car(String brand, int wheels) {
-        super(wheels); // Gọi constructor của Vehicle
-        this.brand = brand;
+    // Constructor lớp con gọi constructor lớp cha bằng super
+    SavingsAccount(String ownerName, double balance, double interestRate) {
+        super(ownerName, balance); // Gọi constructor của BankAccount
+        this.interestRate = interestRate;
     }
 
-    void showInfo() {
-        System.out.println("Brand: " + brand);
-        showWheels(); // Gọi phương thức của lớp cha (hoặc dùng super.showWheels())
+    // Ghi đè phương thức displayInfo để hiển thị thêm lãi suất
+    @Override
+    void displayInfo() {
+        super.displayInfo(); // Gọi phương thức lớp cha để tái sử dụng
+        System.out.println("Lãi suất: " + (interestRate * 100) + "%");
     }
 }
 
 public class Main {
     public static void main(String[] args) {
-        Car myCar = new Car("Toyota", 4);
-        myCar.showInfo();
+        SavingsAccount savings = new SavingsAccount("Nguyễn Văn A", 5000000, 0.05);
+        savings.displayInfo();
     }
 }
+
 ```
 
 💡**Lưu ý:**  `@Override`
@@ -131,36 +164,58 @@ public class Main {
 - Khi ghi đè, bạn có thể sử dụng `super.methodName()` để gọi phương thức gốc của lớp cha bên trong phương thức mới.
 
 **Ví dụ:**
+Giả sử ngân hàng có một lớp cha `BankAccount` đại diện cho tài khoản chung:
+- Chứa phương thức `calculateInterest()` dùng để tính lãi.
+- Phương thức này sẽ được ghi đè (override) ở lớp con để tính toán riêng cho từng loại tài khoản.
 ```java
-// Lớp cha: Vehicle
-class Vehicle {
-    public void move() {
-        System.out.println("Phương tiện đang di chuyển...");
+// Lớp cha: BankAccount
+class BankAccount {
+    String ownerName;
+    double balance;
+
+    public BankAccount(String ownerName, double balance) {
+        this.ownerName = ownerName;
+        this.balance = balance;
+    }
+
+    // Phương thức tính lãi suất chung
+    public void calculateInterest() {
+        System.out.println("Tài khoản chung không có lãi suất đặc biệt.");
     }
 }
 
-// Lớp con: Car kế thừa từ Vehicle
-class Car extends Vehicle {
+// Lớp con: SavingsAccount kế thừa BankAccount
+class SavingsAccount extends BankAccount {
+    double interestRate;
+
+    public SavingsAccount(String ownerName, double balance, double interestRate) {
+        super(ownerName, balance);
+        this.interestRate = interestRate;
+    }
+
+    // Ghi đè phương thức calculateInterest
     @Override
-    public void move() {
-        System.out.println("Xe hơi đang chạy trên đường...");
+    public void calculateInterest() {
+        double interest = balance * interestRate;
+        System.out.println("Tài khoản tiết kiệm của " + ownerName +
+                           " nhận lãi: " + interest + " VND");
     }
 }
 
 // Chương trình chính
 public class Main {
     public static void main(String[] args) {
-        Vehicle v1 = new Vehicle();
-        Vehicle v2 = new Car(); // Kiểu khai báo là Vehicle nhưng object là Car(đa hình)
+        BankAccount acc1 = new BankAccount("Nguyễn Văn A", 5_000_000);
+        BankAccount acc2 = new SavingsAccount("Trần Thị B", 10_000_000, 0.05);
 
-        v1.move(); // Gọi phương thức từ Vehicle
-        v2.move(); // Gọi phương thức bị override từ Car
+        acc1.calculateInterest(); // Gọi phương thức gốc của BankAccount
+        acc2.calculateInterest(); // Gọi phương thức đã được override trong SavingsAccount
     }
 }
-```
-- `Vehicle` có thể có nhiều lớp con như `Car`, `Bike`, `Truck`...
-- Mỗi phương tiện có cách di chuyển khác nhau, nên ta dùng `method overriding` để định nghĩa hành vi riêng.
-- Giúp code linh hoạt, dễ mở rộng khi thêm loại phương tiện mới.
 
+```
+- Ngân hàng có thể thêm các loại tài khoản khác như `CheckingAccount`, `CreditAccount`...
+- Mỗi loại tài khoản chỉ cần ghi đè phương thức calculateInterest() với cách tính riêng.
+- Giúp mở rộng hệ thống dễ dàng mà không cần thay đổi code gốc.
 
 ---
