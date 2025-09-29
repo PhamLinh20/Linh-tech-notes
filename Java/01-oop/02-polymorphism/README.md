@@ -57,25 +57,57 @@ public class Main {
 
  **Ví dụ:** 
 ```java
- class Animal {
-    void sound() {
-        System.out.println("Animal makes a sound");
+ // Lớp cha: Dịch vụ giao hàng chung
+class DeliveryService {
+    public void calculateFee(double weight) {
+        System.out.println("Tính phí giao hàng chung...");
     }
 }
 
-class Dog extends Animal {
-    @Override  // đảm bảo đúng chữ ký khi ghi đè
-    void sound() {
-        System.out.println("Woof");
+// Lớp con: Giao hàng thường
+class StandardDelivery extends DeliveryService {
+    @Override
+    public void calculateFee(double weight) {
+        double fee = 20000 + weight * 1000;
+        System.out.println("Giao hàng thường: " + fee + " VND");
     }
 }
 
+// Lớp con: Giao hàng nhanh
+class ExpressDelivery extends DeliveryService {
+    @Override
+    public void calculateFee(double weight) {
+        double fee = 40000 + weight * 1500;
+        System.out.println("Giao hàng nhanh: " + fee + " VND");
+    }
+}
+
+// Lớp con: Giao hàng quốc tế
+class InternationalDelivery extends DeliveryService {
+    @Override
+    public void calculateFee(double weight) {
+        double fee = 100000 + weight * 5000;
+        System.out.println("Giao hàng quốc tế: " + fee + " VND");
+    }
+}
+
+// Chương trình chính
 public class Main {
     public static void main(String[] args) {
-        Animal a = new Dog();  // biến kiểu cha, đối tượng thực tế là con
-        a.sound();             // Runtime: gọi phương thức của Dog → "Woof"
+        // Biến tham chiếu kiểu cha, đối tượng thực tế là lớp con (Runtime Polymorphism)
+        DeliveryService service;
+
+        service = new StandardDelivery();
+        service.calculateFee(2.5);   // Gọi phương thức của StandardDelivery
+
+        service = new ExpressDelivery();
+        service.calculateFee(2.5);   // Gọi phương thức của ExpressDelivery
+
+        service = new InternationalDelivery();
+        service.calculateFee(2.5);   // Gọi phương thức của InternationalDelivery
     }
 }
+
 ```
 
 💡**Lưu ý :**
