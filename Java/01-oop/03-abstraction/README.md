@@ -47,6 +47,7 @@ Người dùng chỉ cần **thanh toán** mà không cần biết chi tiết c�
 abstract class Payment {
     double amount;
 
+// Constructor
     Payment(double amount) {
         this.amount = amount;
     }
