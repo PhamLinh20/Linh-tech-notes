@@ -110,13 +110,4 @@ public class Main {
 
 ```
 
-💡**Lưu ý :**
-Trong Java, **“chữ ký” của phương thức** gồm:
 
-- **Tên phương thức** (*method name*)  
-- **Danh sách tham số** (*parameter list*: số lượng, kiểu dữ liệu, thứ tự)  
-
-👉 **Không bao gồm**:  
-- Kiểu trả về (*return type*)  
-- Phạm vi truy cập (*access modifier*: `public`, `private`, …)  
----
