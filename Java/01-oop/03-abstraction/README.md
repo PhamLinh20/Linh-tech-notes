@@ -46,8 +46,8 @@ Người dùng chỉ cần **thanh toán** mà không cần biết chi tiết c�
 // Abstract class: Payment
 abstract class Payment {
     double amount;
-
-// Constructor
+    
+ // Constructor
     Payment(double amount) {
         this.amount = amount;
     }
@@ -145,10 +145,8 @@ Interface trong Java là một hợp đồng (contract) hoặc một tập hợp
 - Nó định nghĩa một bộ phương thức trừu tượng (chỉ có chữ ký – signature, không có phần cài đặt).
 - Bất kỳ lớp nào implements(thực hiện) interface thì bắt buộc phải cung cấp phần cài đặt cụ thể cho tất cả các phương thức mà interface yêu cầu.
 
-**Ví dụ:**  Ổ cắm điện và các thiết bị điện.
-
-- Interface: `ElectricSocket` quy định các cổng và điện áp.
-- Thiết bị như `Fan`, `Laptop` chỉ cần tuân thủ đúng interface để có thể kết nối và sử dụng.
+**Ví dụ:**  Trong ngân hàng, PaymentMethod là quy định chung cho các cách thanh toán.
+- Các hình thức như thẻ tín dụng, chuyển khoản, hay ví điện tử chỉ cần tuân theo quy định này thì đều có thể thực hiện giao dịch.
 
 ---
 #### 2.2 Đặc điểm chính
@@ -176,31 +174,6 @@ access_modifier interface InterfaceName {
 
 - **Ví dụ:**
 ```java
-interface InterfaceName {
-    // Hằng số
-    int MAX_SPEED = 120; // public static final
-
-    // Phương thức trừu tượng (mặc định là public abstract)
-    void start();
-    void stop();
-
-    // Default method (Java 8+)
-    default void info() {
-        System.out.println("This is a default method inside an interface");
-    }
-
-    // Static method (Java 8+)
-    static void displayRules() {
-        System.out.println("Interface rules are being displayed");
-    }
-}
-```
-**Triển khai Interface:**
-- Một class dùng từ khóa `implements` để cài đặt (triển khai) interface.
-- Khi implements, class phải viết code cho tất cả các phương thức abstract.
-
-**Ví dụ:**
-```java
 // Interface định nghĩa hành vi thanh toán
 interface PaymentMethod {
     void pay();  // Phương thức abstract
@@ -215,7 +188,13 @@ interface PaymentMethod {
         System.out.println("Interface rules are being displayed");
     }
 }
+```
+**Triển khai Interface:**
+- Một class dùng từ khóa `implements` để cài đặt (triển khai) interface.
+- Khi implements, class phải viết code cho tất cả các phương thức abstract.
 
+**Ví dụ:**
+```java
 // Class triển khai (implements) Interface
 class BankTransfer implements PaymentMethod {
     @Override
