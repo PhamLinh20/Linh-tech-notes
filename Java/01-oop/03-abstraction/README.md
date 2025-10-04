@@ -29,6 +29,10 @@ Người dùng chỉ cần **thanh toán** mà không cần biết chi tiết c�
 - Thích hợp khi các lớp có **mối quan hệ gần gũi**, chia sẻ một số logic chung, nhưng vẫn **khác nhau ở một vài hành vi**.  
 - Hỗ trợ **tái sử dụng code** thông qua việc chia sẻ phương thức/thuộc tính chung cho nhiều lớp con.  
 
+💡**Lưu ý:**  Static method (phương thức tĩnh) là phương thức thuộc về lớp (class) chứ không thuộc về đối tượng (object).
+- Có thể gọi phương thức đó mà không cần tạo đối tượng của lớp.
+- Nó được gắn với class chứ không gắn với từng instance.
+
 **Ví dụ:** Thanh toán trong ứng dụng bán hàng
 - Lớp cha `Payment`:
   - Đại diện cho khái niệm thanh toán chung, chứa thông tin như số tiền, loại tiền tệ.
