@@ -95,7 +95,6 @@ Mọi thứ mà người dùng thấy hoặc tương tác trên màn hình (nút
     android:text="Bật thông báo" />
 ```
 ---
-## 🔎 Các thuộc tính cơ bản của View
 
 ## 🔎 Các thuộc tính cơ bản của View
 
