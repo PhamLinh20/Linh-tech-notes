@@ -40,17 +40,12 @@ Trong Android, mọi layout như `LinearLayout`, `ConstraintLayout`, `FrameLayou
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/sky"
     tools:context=".MainActivity">
 
    <Button
        android:id="@+id/button"
        android:layout_width="wrap_content"
        android:layout_height="wrap_content"
-       android:layout_marginStart="104dp"
-       android:layout_marginTop="216dp"
-       android:background="@drawable/rounded_button"
-       android:backgroundTint="@null"
        android:text="Just a button"
        app:layout_constraintStart_toStartOf="parent"
        app:layout_constraintTop_toTopOf="parent" />
