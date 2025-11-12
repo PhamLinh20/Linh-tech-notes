@@ -33,25 +33,27 @@ Trong Android, mọi layout như `LinearLayout`, `ConstraintLayout`, `FrameLayou
 ## ⚙️ Ví dụ minh họa
 
 ```xml
-<?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main"
+```xml
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:padding="8dp"
+    android:gravity="center">
 
-   <Button
-       android:id="@+id/button"
-       android:layout_width="wrap_content"
-       android:layout_height="wrap_content"
-       android:text="Just a button"
-       app:layout_constraintStart_toStartOf="parent"
-       app:layout_constraintTop_toTopOf="parent" />
+    <Button
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:text="Accept" />
 
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <Button
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:text="Decline" />
+</LinearLayout>
 ```
 ---
 
